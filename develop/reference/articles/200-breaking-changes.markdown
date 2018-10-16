@@ -4420,3 +4420,33 @@ sync both components, and simplify its internal logic, activity sets are always
 enabled by default, with no option to disable them.
 
 ---------------------------------------
+### Updated pids in code but not in Configuration_ table [](id=updated-pids-in-code-but-not-in-configuration_-table)
+- **Date:** 2018-Oct-16
+- **JIRA Ticket:** LPP-31742
+
+#### What changed? [](id=what-changed-18)
+
+RSS 
+`com.liferay.rss.web.internal.configuration.RSSPortletInstanceConfiguration` 
+changed to `com.liferay.rss.web.configuration.RSSPortletInstanceConfiguration`
+
+Flags
+`com.liferay.flags.configuration.FlagsConfiguration`
+changed to `com.liferay.flags.configuration.FlagsGroupServiceConfiguration`
+
+#### Who is affected? [](id=who-is-affected-18)
+
+This affects anyone who edited System Settings for Flags or RSS between 7010-GA1 
+to 7010-DE-36, then upgraded to DE-37+. The result is that Flags and RSS settings
+are lost after the upgrade.
+
+#### How should I update my code? [](id=how-should-i-update-my-code-18)
+
+Run this [upgrade script](https://github.com/liferay/liferay-support-ee/blob/master/scripts/for-customers/core/updateConfigIds_70x.groovy) if you've already updated from GA1 - DE-36 to DE-37 - DE-59.
+Otherwise, the change is fixed not to occur in DE-60.
+
+#### Why was this change made? [](id=why-was-this-change-made-18)
+
+Files were moved and renamed for better organization and naming conventions.
+
+---------------------------------------
