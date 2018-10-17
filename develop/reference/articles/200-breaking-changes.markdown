@@ -966,3 +966,34 @@ should escape it using the proper escape sequence using `HtmlUtil.escape`.
 This change corrects a best practice violation regarding content escaping.
 
 ---------------------------------------
+### Removed Description HTML Escaping in PortletDisplay [](id=removed-description-html-escaping-in-portletdisplay)
+- **Date:** 2018-Jul-17
+- **JIRA Ticket:** [LPS-86460](https://issues.liferay.com/browse/LPS-86460)
+
+#### What changed? [](id=what-changed-18)
+
+PIDs were changed (moved files, changed naming conventions)
+RSS
+`com.liferay.rss.web.configuration.RSSPortletInstanceConfiguration`
+to 
+`com.liferay.rss.web.internal.configuration.RSSPortletInstanceConfiguration`
+Flags
+`com.liferay.flags.configuration.FlagsConfiguration`
+to
+`com.liferay.flags.configuration.FlagsGroupServiceConfiguration`
+
+#### Who is affected? [](id=who-is-affected-18)
+
+Anyone who changed System Settings for RSS/Flags between GA1-DE36, and 
+patched to DE37+
+
+#### How should I update my code? [](id=how-should-i-update-my-code-18)
+
+If you've already upgraded from ~DE36 to DE37+,  run the upgrade script
+If you're still on ~DE36, upgrade directly to DE60+ 
+
+#### Why was this change made? [](id=why-was-this-change-made-18)
+
+Files moved for organization and renamed for better conventions
+
+---------------------------------------
